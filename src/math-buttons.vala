@@ -431,6 +431,19 @@ public class MathButtons : Gtk.Box
             button.clicked.connect (() => { equation.insert_square (); });
             button.set_tooltip_text (_("Square [Ctrl+2]"));
         }
+	button = builder.get_object ("calc_add_taxes_button") as Gtk.Button;
+        if (button != null)
+        {
+            button.clicked.connect (() => { equation.insert_taxes (false); });
+            button.set_tooltip_text (_("Add taxes to the current number"));
+        }
+
+	button = builder.get_object ("calc_auto_add_taxes_button") as Gtk.Button;
+        if (button != null)
+        {
+            button.clicked.connect (() => { equation.insert_taxes (true); });
+            button.set_tooltip_text (_("Auto add taxes to the current number"));
+        }
         button = builder.get_object ("calc_undo_button") as Gtk.Button;
         if (button != null)
             button.clicked.connect (() => { equation.undo (); });

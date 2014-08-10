@@ -236,7 +236,8 @@ private class EquationParser : Parser
             lower_name == "sinh⁻¹" || lower_name == "cosh⁻¹" || lower_name == "tanh⁻¹" ||
             lower_name == "asinh" || lower_name == "acosh" || lower_name == "atanh" ||
             lower_name == "ones" ||
-            lower_name == "twos")
+            lower_name == "twos" ||
+	    lower_name == "tx")
             return true;
 
         return equation.function_is_defined (name);
@@ -312,6 +313,11 @@ private class EquationParser : Parser
             return x.ones_complement (equation.wordlen);
         else if (lower_name == "twos")
             return x.twos_complement (equation.wordlen);
+	else if (lower_name == "tx")
+	    return x
+	        .add(x.multiply(new Number.double(0.0975)))
+                .add(x.multiply(new Number.double(0.05)))
+		.multiply_integer(100).round().divide_integer(100);
         else
             return equation.get_function (name, x);
     }

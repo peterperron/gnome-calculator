@@ -815,6 +815,29 @@ public class MathEquation : Gtk.TextBuffer
         }
     }
 
+    public new void insert_taxes (bool autoAdd)
+    {
+        /*if it is not the first character in the buffer*/
+        if (get_char_count () > 0)
+        {
+	    // We surroud the current text
+            Gtk.TextIter iter;
+	    get_start_iter (out iter);
+	    insert_interactive(iter, "tx(", 3, true);
+	    get_end_iter (out iter);
+	    insert_interactive(iter, ")", 1, true);
+	    if(autoAdd)
+	    {
+	    	solve();
+	    }
+        }
+	else
+	{
+	    // There's nothing in the textbox so we just add the begining of the operation.
+	    insert ("tx(");
+	}
+    }
+
     public void insert_digit (uint digit)
     {
         const unichar subscript_digits[] = {'₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉'};
