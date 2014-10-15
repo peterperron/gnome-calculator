@@ -315,7 +315,7 @@ private class EquationParser : Parser
             return x.twos_complement (equation.wordlen);
 	else if (lower_name == "tx")
 	    return x
-	        .add(x.multiply(new Number.double(0.0975)))
+	        .add(x.multiply(new Number.double(0.09975)))
                 .add(x.multiply(new Number.double(0.05)))
 		.multiply_integer(100).round().divide_integer(100);
         else

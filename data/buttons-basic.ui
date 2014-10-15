@@ -423,7 +423,7 @@
     </child>
     <child>
       <object class="GtkButton" id="calc_add_taxes_button">
-        <property name="label" translatable="yes" comments="Add the current taxes to the current number">Add taxes (9.75% and 5%)</property>
+        <property name="label" translatable="yes" comments="Add the current taxes to the current number">Add taxes (9.975% and 5%)</property>
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="receives_default">False</property>

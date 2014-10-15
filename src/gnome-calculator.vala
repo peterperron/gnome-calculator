@@ -52,6 +52,10 @@ public class Calculator : Gtk.Application
         var target_currency = settings.get_string ("target-currency");
         var source_units = settings.get_string ("source-units");
         var target_units = settings.get_string ("target-units");
+		//var tax1 = settings.get_string ("tax1");
+		//var tax2 = settings.get_string ("tax2");
+		//var charge_tax2_over_tax1 = settings.get_string ("charge_tax2_over_tax1");
+		
 
         var equation = new MathEquation ();
         equation.accuracy = accuracy;
